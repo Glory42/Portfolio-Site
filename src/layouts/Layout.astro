@@ -1,3 +1,8 @@
+---
+import "../styles/global.css";
+
+const { title = "Görkem Karyol" } = Astro.props;
+---
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,18 +10,10 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/akira-patch-seeklogo.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
 	</head>
-	<body>
+	<body class="font-sans bg-gray-50 text-gray-900">
 		<slot />
 	</body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
