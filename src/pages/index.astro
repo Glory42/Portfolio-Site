@@ -1,11 +1,30 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Navbar from '../components/Navbar.astro';
 ---
 
 <Layout>
-	<Welcome />
+	<main>
+		<p class="mb-4">
+			GörkemKaryol@gorkemkaryol.dev ~ $ <span >me -h</span>
+		</p>
+
+		<p class="mb-2  text-emerald-400">
+    		Hi, I am a Computer Engineering student with a strong passion for back-end development and web projects.
+    	</p>
+    	<p class="mb-6 text-emerald-400">
+    		Expertise in creating user-friendly web applications, enhancing user experience through meticulous design and validation.
+	    </p>
+
+		 <p class="underline mb-2 text-emerald-400">Contact</p>
+    	
+		 <div class="flex gap-4 mb-8 text-emerald-400">
+      		<a href="https://github.com/glory42" target="_blank" class="hover:text-green-600">Github</a>
+      		<a href="https://linkedin.com/in/glory42" target="_blank" class="hover:text-green-600">Linkedin</a>
+      		<a href="../../public/resume.pdf" target="_blank" class="hover:text-green-600">CV</a>
+      		<a href="mailto:gorkemkaryol03@gmail.com" target="_blank" class="hover:text-green-600">mail</a>
+    	</div>
+
+ 		<Navbar />
+	</main>
 </Layout>
