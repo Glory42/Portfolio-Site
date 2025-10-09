@@ -1,9 +1,23 @@
 ---
+type Route = {
+  path: string,
+  name: string
+}
+
+const routes: Route[] = [
+  { path: '/', name: '/Me' },
+  { path: '/projects', name: '/Projects' },
+  { path: '/experience', name: '/Experience' },
+  { path: '/coolRoute', name: '/CoolRoute' },
+  { path: '/underConstruction', name: '/UnderConstruction' },
+]
+
+const currentPath: string = Astro.url.pathname;
 ---
 <nav class="flex justify-between items-center p-4">
     <ul class="space-x-6">
-        <li><a href="/">/Me</a></li>
-        <li><a href="/projects">/Projects</a></li>
-        <li><a href="/experience">/Experience</a></li>
+        {routes.map(route => route.path !== currentPath && (
+          <li><a href={route.path}>{route.name}</a></li>  
+        ))}
   </ul>
 </nav>
