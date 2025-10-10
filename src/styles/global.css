@@ -1,1 +1,95 @@
 @import "tailwindcss";
+
+body {
+    margin: 0;       
+    height: 100dvh;     
+    overflow: hidden;  
+}
+
+#about-section {
+  max-width: 50%;       
+  padding: 10px;        
+  line-height: 1.6;     
+  text-align:justify;   
+}
+
+#contact-section {
+  max-width: 50%;        
+  text-align: center;    
+  padding-top: 10px;     
+}
+
+#contact-section a {
+  margin-right: 10px;    
+  display: inline-block; 
+}
+
+
+.terminal {
+    background: #313131;
+    border-radius: 10px;
+    width: 98vw;             
+    height: 96dvh;          
+    margin: 2.5dvh auto;      
+    padding: 20px;           
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    font-family: 'Courier New', Courier, monospace;
+    overflow-y: auto;       
+    overflow-x: hidden;
+}
+
+.terminal-header {
+    display: flex;
+    gap: 8px;
+    padding: 10px;
+}
+
+.circle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.terminal-body {
+    padding: 20px;
+}
+
+.cursor {
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+.terminal-body p,
+.terminal-body a,
+.terminal-body div {
+      font-family: 'Courier New', Courier, monospace;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(5px);
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
