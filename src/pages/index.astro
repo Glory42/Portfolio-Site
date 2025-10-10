@@ -7,7 +7,7 @@ import Footer from '../components/Footer.astro';
 <Layout title="Görkem Karyol">
 	<main class="terminal">
 		<Footer />
-		<div class="terminal-body">
+		<div class="flex flex-col justify-start p-5 flex-1 overflow-y-scroll [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
 			<p id="command" class="mb-4">
 				GörkemKaryol@gorkemkaryol.dev ~ $ <span id="typed"></span><span class="cursor">|</span>
 			</p>
@@ -30,13 +30,13 @@ import Footer from '../components/Footer.astro';
 	</main>
 
 	<script>
-		import { typeWriter } from '../components/Typewritter.ts';
+		import { typeWriter } from '../components/Typewriter.ts';
 
 		const typedEl = document.getElementById('typed');
 		const contentEl = document.getElementById('content');
 
 		if(typedEl && contentEl) {
-			typeWriter(typedEl, "me -h", 70, () => {
+			typeWriter(typedEl, "me -h", 40, () => {
 	    		contentEl.classList.remove("hidden");
     			contentEl.classList.add("fade-in");
 			});

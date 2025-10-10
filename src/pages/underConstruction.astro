@@ -7,27 +7,32 @@ import Footer from '../components/Footer.astro';
 <Layout title="Görkem Karyol">
 	<main class="terminal">
 		<Footer />
-		<div class="terminal-body">
+		<div class="flex flex-col justify-start p-5 flex-1 overflow-y-scroll [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
 			<p id="command" class="mb-4">
 				GörkemKaryol@gorkemkaryol.dev ~ $ <span id="typed"></span><span class="cursor">|</span>
 			</p>
+			<div id="navbar" class="sticky top-0 w-full z-10 hidden fade-in">
+				<Navbar />
+			</div>
 			<div id="content" class="hidden">
 				
-				<Navbar />
 			</div>
 		</div>
 	</main>
 
 	<script>
-		import { typeWriter } from '../components/Typewritter.ts';
+		import { typeWriter } from '../components/Typewriter.ts';
 
 		const typedEl = document.getElementById('typed');
 		const contentEl = document.getElementById('content');
+        const navbarEl = document.getElementById('navbar');
 
-		if(typedEl && contentEl) {
-			typeWriter(typedEl, "cd /UnderConstruction", 20, () => {
-	    		contentEl.classList.remove("hidden");
-    			contentEl.classList.add("fade-in");
+		if (typedEl && contentEl && navbarEl) {
+			typeWriter(typedEl, "cd /underConstructure", 10, () => {
+				contentEl.classList.remove("hidden");
+				contentEl.classList.add("fade-in");
+                navbarEl.classList.remove("hidden");
+				navbarEl.classList.add("fade-in");
 			});
 		}
 	</script>
