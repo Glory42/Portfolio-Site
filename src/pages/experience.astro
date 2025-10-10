@@ -11,20 +11,9 @@ import Footer from '../components/Footer.astro';
 			<p id="command" class="mb-4">
 				GörkemKaryol@gorkemkaryol.dev ~ $ <span id="typed"></span><span class="cursor">|</span>
 			</p>
-				<div id="content" class="hidden">
-				<p id="about-section" class="mb-6  text-green-500">
-					Hi, I am a Computer Engineering student with a strong passion for back-end development and web projects. I specialize in building efficient and scalable web applications, focusing on creating seamless user experiences through meticulous design, validation, and API development. In addition to development, I actively contribute to tech communities, collaborating on projects that solve real-world problems and enhance my learning in software engineering and IoT systems. I love experimenting with new technologies, optimizing code, and continuously improving my skills to deliver high-quality solutions. 			
-				</p>
-				<div id="contact-section">
-					<p class="underline mb-2 text-green-500">Contact</p>
-					<div class="gap-4 mb-8 text-green-500">
-						<a href="https://github.com/glory42" target="_blank" class="hover:text-green-600">Github</a>
-						<a href="https://linkedin.com/in/glory42" target="_blank" class="hover:text-green-600">Linkedin</a>
-						<a href="../../public/resume.pdf" target="_blank" class="hover:text-green-600">CV</a>
-						<a href="mailto:gorkemkaryol03@gmail.com" target="_blank" class="hover:text-green-600">mail</a>
-					</div>
-				</div>
-				<Navbar />
+			<div id="content" class="hidden">
+                
+			    <Navbar />
 			</div>
 		</div>
 	</main>
@@ -36,7 +25,7 @@ import Footer from '../components/Footer.astro';
 		const contentEl = document.getElementById('content');
 
 		if(typedEl && contentEl) {
-			typeWriter(typedEl, "cd /Experience", 70, () => {
+			typeWriter(typedEl, "cd /Experience", 20, () => {
 	    		contentEl.classList.remove("hidden");
     			contentEl.classList.add("fade-in");
 			});
