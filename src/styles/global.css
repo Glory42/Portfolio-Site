@@ -6,13 +6,6 @@ body {
     overflow: hidden;  
 }
 
-#about-section {
-  max-width: 50%;       
-  padding: 10px;        
-  line-height: 1.6;     
-  text-align:justify;   
-}
-
 #contact-section {
   max-width: 50%;        
   text-align: center;    
@@ -38,6 +31,7 @@ body {
     display: flex;
     flex-direction: column;
 }
+
 .terminal-header {
     background: #313131;
     display: flex;
