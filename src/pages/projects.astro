@@ -7,28 +7,86 @@ import Footer from '../components/Footer.astro';
 <Layout title="Görkem Karyol">
 	<main class="terminal">
 		<Footer />
-		<div class="terminal-body">
+		<div class="flex flex-col justify-start p-5 flex-1 overflow-y-scroll [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
 			<p id="command" class="mb-4">
 				GörkemKaryol@gorkemkaryol.dev ~ $ <span id="typed"></span><span class="cursor">|</span>
 			</p>
-			<div id="content" class="hidden">
-				
+			<div id="navbar" class="sticky top-0 w-full z-10 hidden fade-in">
 				<Navbar />
+			</div>
+			<div id="content" class="hidden">
+				<div class="bg-[#2a2a2a] p-4 min-h-[200px] w-[95%] max-w-[800px] my-5 mx-auto flex flex-col justify-center 
+							shadow-[0_4px_12px_rgba(0,0,0,0.4),0_2px_6px_rgba(0,0,0,0.2)] text-center rounded-xl 
+							transition-all duration-300 ease-in-out cursor-pointer 
+							hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(0,0,0,0.5),0_4px_12px_rgba(0,0,0,0.3)] 
+							hover:bg-[#333333]">
+					<p class="font-bold text-sm mb-1 text-white leading-tight">GitHub Contributions</p>
+					<div id="contributions-grid" class="flex flex-col gap-0.5 p-3 w-full max-w-full justify-center items-center"></div>
+				</div>
+				<div class="grid grid-cols-2 gap-5 justify-center items-start p-5 max-w-[80%] mx-auto">
+					<div class="bg-[#2a2a2a] p-3 text-center h-32 w-full flex flex-col justify-center items-center 
+								shadow-[0_4px_12px_rgba(0,0,0,0.4),0_2px_6px_rgba(0,0,0,0.2)] 
+								break-words box-border rounded-xl transition-all duration-300 ease-in-out cursor-pointer 
+								hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(0,0,0,0.5),0_4px_12px_rgba(0,0,0,0.3)] 
+								hover:bg-[#333333]">
+						<p class="font-bold text-sm mb-1 text-white leading-tight">Sarpale</p>
+						<p class="text-xs text-gray-300 leading-snug flex-1 flex items-center justify-center text-center overflow-hidden">A tool for managing personal projects with real-time updates.</p>
+					</div>
+					<div class="bg-[#2a2a2a] p-3 text-center h-32 w-full flex flex-col justify-center items-center 
+								shadow-[0_4px_12px_rgba(0,0,0,0.4),0_2px_6px_rgba(0,0,0,0.2)] 
+								break-words box-border rounded-xl transition-all duration-300 ease-in-out cursor-pointer 
+								hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(0,0,0,0.5),0_4px_12px_rgba(0,0,0,0.3)] 
+								hover:bg-[#333333]">
+						<p class="font-bold text-sm mb-1 text-white leading-tight">Sarpale</p>
+						<p class="text-xs text-gray-300 leading-snug flex-1 flex items-center justify-center text-center overflow-hidden">A tool for managing personal projects with real-time updates.</p>
+					</div>
+					<div class="bg-[#2a2a2a] p-3 text-center h-32 w-full flex flex-col justify-center items-center 
+								shadow-[0_4px_12px_rgba(0,0,0,0.4),0_2px_6px_rgba(0,0,0,0.2)] 
+								break-words box-border rounded-xl transition-all duration-300 ease-in-out cursor-pointer 
+								hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(0,0,0,0.5),0_4px_12px_rgba(0,0,0,0.3)] 
+								hover:bg-[#333333]">
+						<p class="font-bold text-sm mb-1 text-white leading-tight">Sarpale</p>
+						<p class="text-xs text-gray-300 leading-snug flex-1 flex items-center justify-center text-center overflow-hidden">A tool for managing personal projects with real-time updates.</p>
+					</div>
+					<div class="bg-[#2a2a2a] p-3 text-center h-32 w-full flex flex-col justify-center items-center 
+								shadow-[0_4px_12px_rgba(0,0,0,0.4),0_2px_6px_rgba(0,0,0,0.2)] 
+								break-words box-border rounded-xl transition-all duration-300 ease-in-out cursor-pointer 
+								hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(0,0,0,0.5),0_4px_12px_rgba(0,0,0,0.3)] 
+								hover:bg-[#333333]">
+						<p class="font-bold text-sm mb-1 text-white leading-tight">Sarpale</p>
+						<p class="text-xs text-gray-300 leading-snug flex-1 flex items-center justify-center text-center overflow-hidden">A tool for managing personal projects with real-time updates.</p>
+					</div>
+					<div class="bg-[#2a2a2a] p-3 text-center h-32 w-full flex flex-col justify-center items-center 
+								shadow-[0_4px_12px_rgba(0,0,0,0.4),0_2px_6px_rgba(0,0,0,0.2)] 
+								break-words box-border rounded-xl transition-all duration-300 ease-in-out cursor-pointer 
+								hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(0,0,0,0.5),0_4px_12px_rgba(0,0,0,0.3)] 
+								hover:bg-[#333333]">
+						<p class="font-bold text-sm mb-1 text-white leading-tight">Sarpale</p>
+						<p class="text-xs text-gray-300 leading-snug flex-1 flex items-center justify-center text-center overflow-hidden">A tool for managing personal projects with real-time updates.</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</main>
 
 	<script>
-		import { typeWriter } from '../components/Typewritter.ts';
+		import { typeWriter } from '../components/Typewriter.ts';
+		import { fetchContributions } from '../components/GithubStatus.ts';
 
-		const typedEl = document.getElementById('typed');
-		const contentEl = document.getElementById('content');
+		document.addEventListener('DOMContentLoaded', () => {
+			const typedEl = document.getElementById('typed');
+			const contentEl = document.getElementById('content');
+			const navbarEl = document.getElementById('navbar');
 
-		if(typedEl && contentEl) {
-			typeWriter(typedEl, "cd /Projects", 20, () => {
-	    		contentEl.classList.remove("hidden");
-    			contentEl.classList.add("fade-in");
-			});
-		}
+			if (typedEl && contentEl && navbarEl) {
+				typeWriter(typedEl, "cd /projects", 10, () => {
+					contentEl.classList.remove("hidden");
+					contentEl.classList.add("fade-in");
+					navbarEl.classList.remove("hidden");
+					navbarEl.classList.add("fade-in");
+					fetchContributions();
+				});
+			}
+		});
 	</script>
 </Layout>
