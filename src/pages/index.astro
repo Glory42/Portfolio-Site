@@ -1,15 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="Görkem Karyol">
 	<main class="terminal">
-		<div class="terminal-header">
-			<span class="circle red"></span>
-			<span class="circle yellow"></span>
-			<span class="circle green"></span>
-		</div>
+		<Footer />
 		<div class="terminal-body">
 			<p id="command" class="mb-4">
 				GörkemKaryol@gorkemkaryol.dev ~ $ <span id="typed"></span><span class="cursor">|</span>
