@@ -20,7 +20,6 @@ interface User {
     contributionsCollection: ContributionsCollection;
 }
 
-
 export async function fetchContributions(): Promise<void> {
     console.log('Environment variables:', import.meta.env);
     const username = 'Glory42'; 
@@ -105,10 +104,10 @@ export async function fetchContributions(): Promise<void> {
                     if (day) {
                         const count = day.contributionCount;
                         let colorClass = 'bg-gray-600 border-gray-600'; 
-                        if (count > 0) colorClass = 'bg-green-900 border-green-900'; 
-                        if (count >= 2) colorClass = 'bg-green-800 border-green-800'; 
-                        if (count >= 4) colorClass = 'bg-green-600 border-green-600'; 
-                        if (count >= 6) colorClass = 'bg-green-500 border-green-500'; 
+                        if (count > 0) colorClass = 'bg-[#0e4429] border-[#0e4429]'; 
+                        if (count >= 4) colorClass = 'bg-[#006d32] border-[#006d32]'; 
+                        if (count >= 7) colorClass = 'bg-[#26a641] border-[#26a641]'; 
+                        if (count >= 10) colorClass = 'bg-[#39d353] border-[#39d353]'; 
                         
                         grid[row][col] = `<div class="w-2.5 h-2.5 ${colorClass} hover:opacity-10 transition-opacity duration-150" title="${day.date}: ${count} contributions"></div>`;
                     } else {
