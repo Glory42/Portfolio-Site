@@ -23,7 +23,7 @@ body {
     width: 98vw;             
     height: 96dvh;          
     margin: 2.5dvh auto;      
-    padding: 0;           /* padding kaldırıldı, header ile birleşecek */
+    padding: 0;           
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     font-family: 'Courier New', Courier, monospace;
     overflow-y: auto;       
@@ -37,10 +37,10 @@ body {
     display: flex;
     gap: 8px;
     padding: 10px;
-    border-top-left-radius: 10px;   /* terminal köşeleri ile uyumlu */
+    border-top-left-radius: 10px;   
     border-top-right-radius: 10px;
     width: 100%;
-    box-sizing: border-box;          /* padding toplam genişliğe dahil */
+    box-sizing: border-box;          
 }
 
 .circle {
@@ -88,31 +88,4 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-
-#contributions-grid > div {
-    display: flex;
-    gap: 2px;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    line-height: 0;
-    align-items: center;
-}
-
-#contributions-grid div div {
-    aspect-ratio: 1;
-    border-radius: 2px;
-    cursor: default;
-    width: 10px;
-    height: 10px;
-    margin: 0;
-    padding: 0;
-    display: block;
-    flex-shrink: 0;
-}
-
-#contributions-grid div:hover {
-    opacity: 0.8;
 }
