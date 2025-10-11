@@ -104,15 +104,15 @@ export async function fetchContributions(): Promise<void> {
                 if (row < 7 && col < maxWeeks) {
                     if (day) {
                         const count = day.contributionCount;
-                        let colorClass = 'gray-600'; 
-                        if (count > 0) colorClass = 'green-900'; 
-                        if (count >= 2) colorClass = 'green-800'; 
-                        if (count >= 4) colorClass = 'green-600'; 
-                        if (count >= 6) colorClass = 'green-500'; 
+                        let colorClass = 'bg-gray-600 border-gray-600'; 
+                        if (count > 0) colorClass = 'bg-green-900 border-green-900'; 
+                        if (count >= 2) colorClass = 'bg-green-800 border-green-800'; 
+                        if (count >= 4) colorClass = 'bg-green-600 border-green-600'; 
+                        if (count >= 6) colorClass = 'bg-green-500 border-green-500'; 
                         
-                        grid[row][col] = `<div class="w-2.5 h-2.5 bg-${colorClass} border-${colorClass} title="${day.date}: ${count} contributions"></div>`;
+                        grid[row][col] = `<div class="w-2.5 h-2.5 ${colorClass} hover:opacity-10 transition-opacity duration-150" title="${day.date}: ${count} contributions"></div>`;
                     } else {
-                        grid[row][col] = `<div class="w-2.5 h-2.5 bg-gray-600 border border-gray-600" title="No data"></div>`;
+                        grid[row][col] = `<div class="w-2.5 h-2.5 bg-gray-600 border border-gray-600 hover:opacity-10 transition-opacity duration-150" title="No data"></div>`;
                     }
                 }
             });
