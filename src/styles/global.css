@@ -17,49 +17,6 @@ body {
   display: inline-block; 
 }
 
-.terminal {
-    background: oklch(27.8% 0.033 256.848);
-    border-radius: 10px;
-    width: 98vw;             
-    height: 96dvh;          
-    margin: 2.5dvh auto;      
-    padding: 0;           
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-    font-family: 'Courier New', Courier, monospace;
-    overflow-y: auto;       
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-.terminal-header {
-    background: #313131;
-    display: flex;
-    gap: 8px;
-    padding: 10px;
-    border-top-left-radius: 10px;   
-    border-top-right-radius: 10px;
-    width: 100%;
-    box-sizing: border-box;          
-}
-
-.circle {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    display: inline-block;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.circle:hover {
-    transform: scale(1.2);
-}
-
-.red { background: #ff5f56; }
-.yellow { background: #ffbd2e; }
-.green { background: #27c93f; }
-
 .cursor {
     animation: blink 0.7s infinite;
 }
