@@ -103,15 +103,15 @@ export async function fetchContributions(): Promise<void> {
                 if (row < 7 && col < maxWeeks) {
                     if (day) {
                         const count = day.contributionCount;
-                        let colorClass = 'bg-gray-600 border-gray-600'; 
-                        if (count > 0) colorClass = 'bg-[#0e4429] border-[#0e4429]'; 
-                        if (count >= 4) colorClass = 'bg-[#006d32] border-[#006d32]'; 
-                        if (count >= 7) colorClass = 'bg-[#26a641] border-[#26a641]'; 
-                        if (count >= 10) colorClass = 'bg-[#39d353] border-[#39d353]'; 
+                        let colorClass = 'bg-gray-600'; 
+                        if (count > 0) colorClass = 'bg-[#0e4429]'; 
+                        if (count >= 4) colorClass = 'bg-[#006d32]'; 
+                        if (count >= 7) colorClass = 'bg-[#26a641]'; 
+                        if (count >= 10) colorClass = 'bg-[#39d353]'; 
                         
                         grid[row][col] = `<div class="w-2.5 h-2.5 ${colorClass} hover:opacity-10 transition-opacity duration-150" title="${day.date}: ${count} contributions"></div>`;
                     } else {
-                        grid[row][col] = `<div class="w-2.5 h-2.5 bg-gray-600 border border-gray-600 hover:opacity-10 transition-opacity duration-150" title="No data"></div>`;
+                        grid[row][col] = `<div class="w-2.5 h-2.5 bg-gray-600 hover:opacity-10 transition-opacity duration-150" title="No data"></div>`;
                     }
                 }
             });
