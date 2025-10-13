@@ -2,6 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Terminal from '../components/Terminal.astro';
+import ProjectGrid from '../components/ProjectGrid.astro';
+import { fetchGithubProject } from '../scripts/fetchers/GithubProjectFetcher.ts';
+
+const projects = await fetchGithubProject();
 ---
 
 <Layout title="Görkem Karyol">
@@ -21,55 +25,14 @@ import Terminal from '../components/Terminal.astro';
 					<p class="font-bold text-4xl mb-1 text-white leading-tight pointer-events-none">GitHub Contributions</p>
 					<div id="contributions-grid" class="flex flex-col gap-0.5 p-3 w-full max-w-full justify-center items-center"></div>
 				</div>
-				<div class="grid grid-cols-2 gap-5 justify-center items-start p-5 max-w-[80%] mx-auto">
-					<div class="bg-[#313131] p-3 text-center h-32 w-full flex flex-col justify-center items-center 
-								shadow-[0_4px_12px_rgba(0,0,0,0.4),0_2px_6px_rgba(0,0,0,0.2)] 
-								break-words box-border rounded-3xl transition-all duration-300 ease-in-out cursor-pointer 
-								hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(0,0,0,0.5),0_4px_12px_rgba(0,0,0,0.3)] 
-								hover:bg-black">
-						<p class="font-bold text-sm mb-1 text-white leading-tight">Currency Nostalgia API</p>
-						<p class="text-xs text-gray-300 leading-snug flex-1 flex items-center justify-center text-center overflow-hidden">Currency Nostalgia is a currency comparison API that allows users to compare historical USD exchange rates with today's product prices. It uses CurrencyFreaks free API for current exchange rates and manually added JSON data for historical values and product prices.</p>
-					</div>
-					<div class="bg-[#313131] p-3 text-center h-32 w-full flex flex-col justify-center items-center 
-								shadow-[0_4px_12px_rgba(0,0,0,0.4),0_2px_6px_rgba(0,0,0,0.2)] 
-								break-words box-border rounded-3xl transition-all duration-300 ease-in-out cursor-pointer 
-								hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(0,0,0,0.5),0_4px_12px_rgba(0,0,0,0.3)] 
-								hover:bg-black">
-						<p class="font-bold text-sm mb-1 text-white leading-tight">Social Media API</p>
-						<p class="text-xs text-gray-300 leading-snug flex-1 flex items-center justify-center text-center overflow-hidden">🚀 Social Media API is a backend system for a simplified Twitter-like platform. It allows users to 📝 post tweets with hashtags, 🔄 follow/unfollow users, and 📜 view a personalized feed. Built with Express.js and PostgreSQL, it utilizes advanced SQL queries for hashtag detection and feed generation.</p>
-					</div>
-					<div class="bg-[#313131] p-3 text-center h-32 w-full flex flex-col justify-center items-center 
-								shadow-[0_4px_12px_rgba(0,0,0,0.4),0_2px_6px_rgba(0,0,0,0.2)] 
-								break-words box-border rounded-3xl transition-all duration-300 ease-in-out cursor-pointer 
-								hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(0,0,0,0.5),0_4px_12px_rgba(0,0,0,0.3)] 
-								hover:bg-black">
-						<p class="font-bold text-sm mb-1 text-white leading-tight">E-Commerce API</p>
-						<p class="text-xs text-gray-300 leading-snug flex-1 flex items-center justify-center text-center overflow-hidden">This project is a backend API for an online store, providing essential e-commerce functionalities such as product catalog management, shopping cart handling, order processing, and payment integration.</p>
-					</div>
-					<div class="bg-[#313131] p-3 text-center h-32 w-full flex flex-col justify-center items-center 
-								shadow-[0_4px_12px_rgba(0,0,0,0.4),0_2px_6px_rgba(0,0,0,0.2)] 
-								break-words box-border rounded-3xl transition-all duration-300 ease-in-out cursor-pointer 
-								hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(0,0,0,0.5),0_4px_12px_rgba(0,0,0,0.3)] 
-								hover:bg-black">
-						<p class="font-bold text-sm mb-1 text-white leading-tight">Portfolio Site</p>
-						<p class="text-xs text-gray-300 leading-snug flex-1 flex items-center justify-center text-center overflow-hidden">A tool for managing personal projects with real-time updates.</p>
-					</div>
-					<div class="bg-[#313131] p-3 text-center h-32 w-full flex flex-col justify-center items-center 
-								shadow-[0_4px_12px_rgba(0,0,0,0.4),0_2px_6px_rgba(0,0,0,0.2)] 
-								break-words box-border rounded-3xl transition-all duration-300 ease-in-out cursor-pointer 
-								hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(0,0,0,0.5),0_4px_12px_rgba(0,0,0,0.3)] 
-								hover:bg-black">
-						<p class="font-bold text-sm mb-1 text-white leading-tight">Sarpale</p>
-						<p class="text-xs text-gray-300 leading-snug flex-1 flex items-center justify-center text-center overflow-hidden">A tool for managing personal projects with real-time updates.</p>
-					</div>
-				</div>
+				<ProjectGrid {projects}/>
 			</div>
 		</div>
 	</Terminal>
 
 	<script>
-		import { typeWriter } from '../components/Typewriter.ts';
-		import { fetchContributions } from '../components/GithubStatus.ts';
+		import { typeWriter } from '../scripts/effects/Typewriter.ts';
+		import { fetchContributions } from '../scripts/effects/GithubStatus.ts';
 
 		document.addEventListener('DOMContentLoaded', () => {
 			const typedEl = document.getElementById('typed');
