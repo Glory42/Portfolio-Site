@@ -1,12 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro';
+import Terminal from '../components/Terminal.astro';
 ---
 
 <Layout title="Görkem Karyol">
-	<main class="terminal">
-		<Footer />
+	<Terminal>
 		<div class="flex flex-col justify-start p-5 flex-1 overflow-y-scroll [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
 			<p id="command" class="mb-4">
 				GörkemKaryol@gorkemkaryol.dev ~ $ <span id="typed"></span><span class="cursor">|</span>
@@ -15,10 +14,11 @@ import Footer from '../components/Footer.astro';
 				<Navbar />
 			</div>
 			<div id="content" class="hidden">
-				
+				<img class="w-3/5 mx-auto h-3/10 -mt-24" 
+					src="../../public/images/coolpick.jpeg">
 			</div>
 		</div>
-	</main>
+	</Terminal>
 
 	<script>
 		import { typeWriter } from '../components/Typewriter.ts';

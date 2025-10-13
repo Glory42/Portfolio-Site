@@ -1,12 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro';
+import Terminal from '../components/Terminal.astro';
 ---
 
 <Layout title="Görkem Karyol">
-	<main class="terminal">
-        <Footer />
+	<Terminal>
 		<div class="flex flex-col justify-start p-5 flex-1 overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-transparent">
 			<p id="command" class="mb-4">
 				GörkemKaryol@gorkemkaryol.dev ~ $ <span id="typed"></span><span class="cursor">|</span>
@@ -16,7 +15,7 @@ import Footer from '../components/Footer.astro';
 			</div>
             <div id="content" class="hidden fade-in">
 				<div>
-					<p class="font-bold text-center rounded-full p-2 bg-gray-700 w-1/12 mx-auto -mt-24 mb-5 
+					<p class="font-bold text-center rounded-full p-2 bg-gray-700 w-1/8 mx-auto -mt-24 mb-5 
            					  shadow-[0_2px_5px_rgba(0,0,0,0.3)] text-indigo-400 text-xl">Experience</p>
 					<div class="mt-4">
                         <div class="border-2 border-gray-500 rounded-4xl p-4 w-3/5 mx-auto my-2 bg-gray-700 
@@ -40,7 +39,7 @@ import Footer from '../components/Footer.astro';
 			</div>
 		</div>
 		
-	</main>
+	</Terminal>
 
 	<script>
 		import { typeWriter } from '../components/Typewriter.ts';
