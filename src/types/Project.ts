@@ -3,5 +3,5 @@ export interface Project {
   description: string;
   language?: string;
   stars?: number;
-  url: string;
+  html_url: string;
 }
