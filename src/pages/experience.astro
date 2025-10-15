@@ -2,9 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Terminal from '../components/Terminal.astro';
+import Card from '../components/Card.astro';
 ---
 
-<Layout title="Görkem Karyol">
+<Layout title="Görkem Karyol - Experience">
 	<Terminal>
 		<div class="flex flex-col justify-start p-5 flex-1 overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-transparent">
 			<p id="command" class="mb-4">
@@ -18,22 +19,20 @@ import Terminal from '../components/Terminal.astro';
 					<p class="font-bold text-center rounded-full p-2 bg-gray-700 w-1/8 mx-auto -mt-24 mb-5 
            					  shadow-[0_2px_5px_rgba(0,0,0,0.3)] text-indigo-400 text-xl">Experience</p>
 					<div class="mt-4">
-                        <div class="border-2 border-gray-500 rounded-4xl p-4 w-3/5 mx-auto my-2 bg-gray-700 
-           							shadow-[0_2px_5px_rgba(0,0,0,0.3)]">
+                        <Card>
                             <p><strong>Cyber Security Intern</strong> - OPET <span class="text-gray-300 float-right">Jun 2025 - Aug 2025</span></p>
                             <p class="ml-4">- Conducted vulnerability assessments using tools such as Kali Linux and categorized findings by severity.</p>
                             <p class="ml-4">- Developed custom security tools in Go, including a port scanner with service detection and a hash-cracking utility.</p>
                             <p class="ml-4">- Collaborated with cybersecurity and infrastructure teams to plan and implement remediation strategies.</p>
                             <p class="ml-4 mt-1">- Analyzed and compared vulnerability reports from multiple external vendors to identify overlaps and gaps in findings.</p>
-						</div>
-						<div class="border-2 border-gray-500 rounded-4xl p-4 w-3/5 mx-auto my-2 bg-gray-700 
-           							shadow-[0_2px_5px_rgba(0,0,0,0.3)]">
+						</Card>
+						<Card>
                             <p class="mk-4"><strong>Google Developer Groups on Campus Halic</strong> - Core Member, Project Team Member<span class="text-gray-300 float-right">Sep 2024 - Present</span></p>
                             <p class="ml-4">- Collaborating with my team to design and build applications that offer practical solutions to real-world challenges.</p>
                             <p class="ml-4">- Gaining hands-on experience in managing projects and working i n a collaborative environment.</p>
                             <p class="ml-4">- Partnering with the social media team to produce creative and engaging content that promotes our events and highlights our ongoing work.</p>
                             <p class="ml-4">- Actively participating in both community-focused initiatives and internal project development to support our team’s mission and outreach. </p>
-                        </div>
+                        </Card>
                     </div>
 				</div>
 			</div>
