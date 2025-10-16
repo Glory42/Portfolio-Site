@@ -4,6 +4,8 @@ type Route = {
   name: string
 }
 
+const { currentPath } = Astro.props;
+
 const routes: Route[] = [
   { path: '/', name: '/me' },
   { path: '/projects', name: '/projects' },
@@ -11,8 +13,6 @@ const routes: Route[] = [
   { path: '/interests', name: '/interests' },
   { path: '/coolRoute', name: '/coolRoute' },
 ]
-
-const currentPath: string = Astro.url.pathname;
 ---
 <nav class="flex justify-between items-center p-4">
     <ul class="space-x-6">
