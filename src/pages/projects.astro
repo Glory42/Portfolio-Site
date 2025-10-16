@@ -32,7 +32,7 @@ const projects = await fetchGithubProject();
 
 	<script>
 		import { typeWriter } from '../scripts/effects/Typewriter.ts';
-		import { fetchContributions } from '../scripts/effects/GithubStatus.ts';
+		import { fetchContributions } from '../scripts/fetchers/GithubStatusFetcher.ts';
 
 		document.addEventListener('DOMContentLoaded', () => {
 			const typedEl = document.getElementById('typed');
