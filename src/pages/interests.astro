@@ -2,10 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Terminal from '../components/Terminal.astro';
+import Card from '../components/Card.astro';
+import { fetchCurrentlyReading } from '../scripts/fetchers/LiteralBookFetcher.ts';
+import type { LiteralReadingState } from "../types/Book.ts";
+const readingBooks: LiteralReadingState[] = await fetchCurrentlyReading();
 
 ---
 
-<Layout title="Görkem Karyol">
+<Layout title="Görkem Karyol - Interests">
 	<Terminal>
 		<div class="flex flex-col justify-start p-5 flex-1 overflow-y-scroll [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
 			<p id="command" class="mb-4">
@@ -15,33 +19,36 @@ import Terminal from '../components/Terminal.astro';
 				<Navbar />
 			</div>
 			<div id="content" class="hidden">
-				<div class="border-2 border-yellow-400 rounded-3xl p-6 w-3/5 mx-auto my-4 
-							bg-indigo-800 shadow-xl hover:shadow-2xl hover:-translate-y-1 
-            				transition-all duration-300 -mt-24">
-                    <p class="text-yellow-400 p-1 leading-relaxed text-start font-bold mb-3 text-lg">I’m passionate about technology and the things I enjoy outside of it. I love exploring Linux(arch btw xd), experimenting with homelabs, and diving into computer networks. Outside of tech, I enjoy reading, watching movies and series, staying active with basketball, skateboarding, and going to the gym, and listening to my favorite music.</p>
-				</div>
-				<div class="border-2 border-yellow-400 rounded-3xl p-6 w-3/5 mx-auto my-4 
-							bg-indigo-800 shadow-xl hover:shadow-2xl hover:-translate-y-1 
-            				transition-all duration-300">
-					<p class="text-yellow-400 font-bold mb-3 text-lg">Favorite</p>
+				<Card >
+					<p class="text-yellow-400 p-1 leading-relaxed text-start font-bold mb-3 text-lg">
+						I’m passionate about technology and the things I enjoy outside of it. I love exploring Linux(arch btw xd), experimenting with homelabs, and diving into computer networks. Outside of tech, I enjoy reading, watching movies and series, staying active with basketball, skateboarding, and going to the gym, and listening to my favorite music.
+					</p>
+
 					<ul class="list-disc list-inside text-yellow-300 space-y-1">
-						<li>🎬 Movie: Knockin’ on Heaven’s Door</li>
-						<li>📚 Book: Hitchhiker's Guide to The Galaxy</li>
-						<li>🎵 Band: Radiohead</li>
-						<li>🎶 Song: Lover You Should've Come Over</li>
+						<li>🎬 Favorite Movie: Knockin’ on Heaven’s Door</li>
+						<li>📚 Favorite Book: Hitchhiker's Guide to The Galaxy</li>
+						<li>🎵 Favorite Band: Radiohead</li>
+						<li>🎶 Favorite Song: Lover You Should've Come Over By "Jeff Buckley"</li>
 					</ul>
-				</div>
-				<div class="border-2 border-yellow-400 rounded-3xl p-6 w-3/5 mx-auto my-4 
-							bg-indigo-800 shadow-xl hover:shadow-2xl hover:-translate-y-1 
-            				transition-all duration-300">
-					<p class="text-yellow-400 font-bold mb-3 text-lg">Right Now</p>
-					<ul class="list-disc list-inside text-yellow-300 space-y-1">
-						<li>🎬 Watching: Sopranos</li>
-						<li>📚 Reading: Entrez Dans la Danse</li>
-						
-						
+					
+					<p class="text-white p-1 leading-relaxed text-start font-bold mb-3 text-lg mt-5">
+					currently reading:
+					</p>
+					<ul class="flex flex-wrap justify-center gap-4">
+						{readingBooks.length === 0 ? (
+							<li class="text-yellow-300">📚 Not currently reading any book</li>
+						) : (
+							readingBooks.map((book) => (
+							<li class="flex flex-col items-center">
+								<img 
+								src={book.book.cover} 
+								class="flex flex-col items-center w-50 max-w-50 text-left mb-4 mx-auto" 
+								/>
+							</li>
+							))
+						)}
 					</ul>
-				</div>
+				</Card>
 		    </div>
 		</div>
 	</Terminal>
