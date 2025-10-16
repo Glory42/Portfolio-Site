@@ -1,9 +1,5 @@
 ---
-type Route = {
-  path: string,
-  name: string
-}
-
+type Route = { path: string, name: string }
 const { currentPath } = Astro.props;
 
 const routes: Route[] = [
@@ -15,9 +11,9 @@ const routes: Route[] = [
 ]
 ---
 <nav class="flex justify-between items-center p-4">
-    <ul class="space-x-6">
-        {routes.map(route => route.path !== currentPath && (
-          <li><a href={route.path}>{route.name}</a></li>  
-        ))}
+  <ul class="space-x-6">
+    {routes.map(route => route.path !== currentPath && (
+      <li><a href={route.path}>{route.name}</a></li>
+    ))}
   </ul>
 </nav>
