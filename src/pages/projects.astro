@@ -3,9 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Terminal from '../components/Terminal.astro';
 import ProjectGrid from '../components/ProjectGrid.astro';
-import { fetchGithubProject } from '../scripts/fetchers/GithubProjectFetcher.ts';
-
-const projects = await fetchGithubProject();
 ---
 
 <Layout title="Görkem Karyol - Projects">
@@ -32,20 +29,22 @@ const projects = await fetchGithubProject();
 
 	<script>
 		import { typeWriter } from '../scripts/effects/Typewriter.ts';
-		
-		const typedEl = document.getElementById('typed');
-		const contentEl = document.getElementById('content');
-		const navbarEl = document.getElementById('navbar');
-		
-		if (typedEl && contentEl && navbarEl) {
-			typeWriter(typedEl, "cd /projects", 10, async () => {
-				contentEl.classList.remove("hidden");
-				contentEl.classList.add("fade-in");
-				navbarEl.classList.remove("hidden");
-				navbarEl.classList.add("fade-in");
-			});
-		}
+		import { fetchContributions } from '../scripts/fetchers/GithubStatusFetcher.ts';
 
+		document.addEventListener('DOMContentLoaded', () => {
+			const typedEl = document.getElementById('typed');
+			const contentEl = document.getElementById('content');
+			const navbarEl = document.getElementById('navbar');
+
+			if (typedEl && contentEl && navbarEl) {
+				typeWriter(typedEl, "cd /projects", 10, () => {
+					contentEl.classList.remove("hidden");
+					contentEl.classList.add("fade-in");
+					navbarEl.classList.remove("hidden");
+					navbarEl.classList.add("fade-in");
+					fetchContributions();
+				});
+			}
+		});
 	</script>
-
 </Layout>
