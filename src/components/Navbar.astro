@@ -1,6 +1,8 @@
 ---
-type Route = { path: string, name: string }
-const { currentPath } = Astro.props;
+type Route = {
+  path: string,
+  name: string
+}
 
 const routes: Route[] = [
   { path: '/', name: '/me' },
@@ -11,9 +13,20 @@ const routes: Route[] = [
 ]
 ---
 <nav class="flex justify-between items-center p-4">
-  <ul class="space-x-6">
-    {routes.map(route => route.path !== currentPath && (
+  <ul class="space-x-6" id="navbar-links">
+    {routes.map(route => (
       <li><a href={route.path}>{route.name}</a></li>
     ))}
   </ul>
 </nav>
+
+<script>
+  const currentPath = window.location.pathname;
+
+  document.querySelectorAll('#navbar-links li').forEach((li) => {
+    const a = li.querySelector('a');
+    if (a && a.getAttribute('href') === currentPath) {
+      (li as HTMLElement).style.display = 'none';
+    }
+  });
+</script>
