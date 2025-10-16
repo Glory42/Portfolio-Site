@@ -18,38 +18,42 @@ const readingBooks: LiteralReadingState[] = await fetchCurrentlyReading();
 			<div id="navbar" class="sticky top-0 w-full z-10 hidden fade-in">
 				<Navbar />
 			</div>
-			<div id="content" class="hidden">
-				<Card >
-					<p class="text-yellow-400 p-1 leading-relaxed text-start font-bold mb-3 text-lg">
-						I’m passionate about technology and the things I enjoy outside of it. I love exploring Linux(arch btw xd), experimenting with homelabs, and diving into computer networks. Outside of tech, I enjoy reading, watching movies and series, staying active with basketball, skateboarding, and going to the gym, and listening to my favorite music.
-					</p>
+			<div id="content" class="hidden mx-auto -mt-24 mb-5 ">
+					<p class="font-bold text-center rounded-full p-2 bg-gray-700 w-1/8 mx-auto 
+           					  shadow-[0_2px_5px_rgba(0,0,0,0.3)] text-indigo-400 text-xl">Interets</p>
+					<Card > 
+						<p class="text-indigo-400 p-1 leading-relaxed text-start font-bold mb-3 text-lg">
+							I’m passionate about technology and the things I enjoy outside of it. I love exploring Linux(arch btw xd), experimenting with homelabs, and diving into computer networks. Outside of tech, I enjoy reading, watching movies and series, basketball, skateboarding, and gym.
+						</p>
+					</Card>
+					<Card >
+						<ul class="flex flex-col items-center space-y-1 text-gray-300 list-disc list-inside">
+							<li class="hover:scale-113 transition-transform">🎬 Favorite Movie: Knockin’ on Heaven’s Door</li>
+							<li class="hover:scale-113 transition-transform">📚 Favorite Book: Hitchhiker's Guide to The Galaxy</li>
+							<li class="hover:scale-113 transition-transform">🎵 Favorite Band: Radiohead</li>
+							<li class="hover:scale-113 transition-transform">🎶 Favorite Song: Lover You Should've Come Over</li>
+						</ul>
 
-					<ul class="list-disc list-inside text-yellow-300 space-y-1">
-						<li>🎬 Favorite Movie: Knockin’ on Heaven’s Door</li>
-						<li>📚 Favorite Book: Hitchhiker's Guide to The Galaxy</li>
-						<li>🎵 Favorite Band: Radiohead</li>
-						<li>🎶 Favorite Song: Lover You Should've Come Over By "Jeff Buckley"</li>
-					</ul>
-					
-					<p class="text-white p-1 leading-relaxed text-start font-bold mb-3 text-lg mt-5">
-					currently reading:
-					</p>
-					<ul class="flex flex-wrap justify-center gap-4">
-						{readingBooks.length === 0 ? (
-							<li class="text-yellow-300">📚 Not currently reading any book</li>
-						) : (
-							readingBooks.map((book) => (
-							<li class="flex flex-col items-center">
-								<img 
-								src={book.book.cover} 
-								class="flex flex-col items-center w-50 max-w-50 text-left mb-4 mx-auto" 
-								/>
-							</li>
-							))
-						)}
-					</ul>
-				</Card>
-		    </div>
+						
+						<p class="text-indigo-400 p-1 leading-relaxed text-start font-bold mb-3 text-lg mt-5">
+						Currently Reading:
+						</p>
+						<ul class="flex flex-wrap justify-center gap-4">
+							{readingBooks.length === 0 ? (
+								<li class="text-indigo-400">📚 Not currently reading any book</li>
+							) : (
+								readingBooks.map((book) => (
+								<li class="flex flex-col items-center">
+									<img 
+									src={book.book.cover} 
+									class="flex flex-col items-center hover:scale-113 transition-transform w-50 max-w-50 text-left mb-4 mx-auto" 
+									/>
+								</li>
+								))
+							)}
+						</ul>
+					</Card>
+			</div>
 		</div>
 	</Terminal>
 
