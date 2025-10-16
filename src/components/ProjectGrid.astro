@@ -1,19 +1,18 @@
 ---
 import ProjectCard from "./ProjectCard.astro";
 import type { Project } from "../types/Project.ts";
+import { fetchGithubProject } from '../scripts/fetchers/GithubProjectFetcher.ts';
 
-interface Props {
-  projects: Project[];
-}
-
-const { projects } = Astro.props as Props;
+let projects: Project[] = [];
 ---
 
-<section
-  class="grid justify-center gap-6 w-full p-4"
-  style="grid-template-columns: repeat(auto-fit, 300px);"
->
-  {projects.map((project) => (
-    <ProjectCard project={project} />
-  ))}
-</section>
+<div id="projects" class="grid justify-center gap-6 w-full p-4">
+  {projects.map(p => <ProjectCard project={p} />)}
+</div>
+
+<script is:inline type="ts">
+  async function loadProjects() {
+    projects = await fetchGithubProject();
+  }
+  await loadProjects();
+</script>

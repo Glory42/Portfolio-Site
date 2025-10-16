@@ -25,35 +25,24 @@ const projects = await fetchGithubProject();
 					<p class="font-bold text-4xl mb-1 text-white leading-tight pointer-events-none">GitHub Contributions</p>
 					<div id="contributions-grid" class="flex flex-col gap-0.5 p-3 w-full max-w-full justify-center items-center"></div>
 				</div>
-				<ProjectGrid {projects}/>
+				<ProjectGrid client:load />
 			</div>
 		</div>
 	</Terminal>
 
 	<script>
 		import { typeWriter } from '../scripts/effects/Typewriter.ts';
-		import { fetchGithubProject } from '../scripts/fetchers/GithubProjectFetcher.ts';
 		
 		const typedEl = document.getElementById('typed');
 		const contentEl = document.getElementById('content');
 		const navbarEl = document.getElementById('navbar');
-		const projectsEl = document.querySelector('#projects');
-		if (!projectsEl) return; // Element yoksa fonksiyonu bitir
-
-		async function loadProjects() {
-		const projects = await fetchGithubProject();
-		projectsEl!.innerHTML = projects
-			.map((p: any) => `<div>${p.name}</div>`)
-			.join('');
-		}
-
+		
 		if (typedEl && contentEl && navbarEl) {
 			typeWriter(typedEl, "cd /projects", 10, async () => {
 				contentEl.classList.remove("hidden");
 				contentEl.classList.add("fade-in");
 				navbarEl.classList.remove("hidden");
 				navbarEl.classList.add("fade-in");
-				await loadProjects();
 			});
 		}
 
