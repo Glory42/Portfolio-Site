@@ -1,45 +1,19 @@
 ---
+import ProjectCard from "./ProjectCard.astro";
 import type { Project } from "../types/Project.ts";
 
-let projects: Project[] = [];
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props as Props;
 ---
 
-<div id="project-grid" class="grid justify-center gap-6 w-full p-4" style="grid-template-columns: repeat(auto-fit, 300px);">
-    {projects.map(project => (
-        <article class="hover:scale-107 bg-[#2b2b2b] p-4 rounded-xl shadow-md hover:shadow-lg transition-all w-[300px]">
-            <h3 class="text-lg font-semibold text-white mb-1">{project.name}</h3>
-            <p class="text-gray-400 text-sm mb-2">{project.description}</p>
-            <div class="flex justify-between text-sm text-gray-500">
-                <span>{project.language}</span>
-                <span>⭐ {project.stars}</span>
-            </div>
-            <a href={project.html_url} class="text-blue-400 hover:underline text-sm mt-2 inline-block" target="_blank">View</a>
-        </article>
-    ))}
-</div>
-
-<script type="module">
-    import { fetchGithubProject } from '../scripts/fetchers/GithubProjectFetcher.ts';
-
-    const gridEl = document.getElementById('project-grid');
-    
-    async function loadProjects() {
-        const data = await fetchGithubProject();
-        projects = data;
-        if (gridEl) {
-            gridEl.innerHTML = data.map(p => `
-                <article class="hover:scale-107 bg-[#2b2b2b] p-4 rounded-xl shadow-md hover:shadow-lg transition-all w-[300px]">
-                    <h3 class="text-lg font-semibold text-white mb-1">${p.name}</h3>
-                    <p class="text-gray-400 text-sm mb-2">${p.description}</p>
-                    <div class="flex justify-between text-sm text-gray-500">
-                        <span>${p.language}</span>
-                        <span>⭐ ${p.stars}</span>
-                    </div>
-                    <a href="${p.html_url}" class="text-blue-400 hover:underline text-sm mt-2 inline-block" target="_blank">View</a>
-                </article>
-            `).join('');
-        }
-    }
-
-    loadProjects();
-</script>
+<section
+  class="grid justify-center gap-6 w-full p-4"
+  style="grid-template-columns: repeat(auto-fit, 300px);"
+>
+  {projects.map((project) => (
+    <ProjectCard project={project} />
+  ))}
+</section>
