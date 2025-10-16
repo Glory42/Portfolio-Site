@@ -12,7 +12,7 @@ import Card from '../components/Card.astro';
 				GörkemKaryol@gorkemkaryol.dev ~ $ <span id="typed"></span><span class="cursor">|</span>
 			</p>
             <div id="navbar" class="sticky top-0 w-full z-10 hidden fade-in">
-				<Navbar />
+				<Navbar currentPath={Astro.url.pathname}/>
 			</div>
             <div id="content" class="hidden fade-in">
 				<div>
