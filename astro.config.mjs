@@ -10,5 +10,8 @@ export default defineConfig({
     define: {
       'import.meta.env.GITHUB_TOKEN': JSON.stringify(process.env.GITHUB_TOKEN),
     }
+  },
+  devToolbar: {
+    enabled: false
   }
 });
