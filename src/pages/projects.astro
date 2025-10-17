@@ -3,9 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Terminal from '../components/Terminal.astro';
 import ProjectGrid from '../components/ProjectGrid.astro';
-import { fetchGithubProject } from '../scripts/fetchers/GithubProjectFetcher.ts';
-
-const projects = await fetchGithubProject();
 ---
 
 <Layout title="Görkem Karyol - Projects">
@@ -18,21 +15,22 @@ const projects = await fetchGithubProject();
 				<Navbar />
 			</div>
 			<div id="content" class="hidden">
-				<div class="bg-[#313131] p-4 min-h-[180px] w-[95%] max-w-[700px] my-5 mx-auto flex flex-col justify-center
-         					shadow-[0_4px_12px_rgba(0,0,0,0.4),0_2px_6px_rgba(0,0,0,0.2)] text-center rounded-3xl
-         					transition-all duration-300 ease-in-out
-         					hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(0,0,0,0.5),0_4px_12px_rgba(0,0,0,0.3)] -mt-20">
+				<div class="border-3 border-gray-700 p-4 min-h-[180px] w-[95%] max-w-[700px] 
+                            my-5 mx-auto flex flex-col justify-center text-center rounded-3xl
+         					transition-all duration-300 ease-in-out shadow-[0_2px_5px_rgba(0,0,0,0.3)] 
+                            hover:-translate-y-0.5 hover:bg-gray-900 -mt-20">
 					<p class="font-bold text-4xl mb-1 text-white leading-tight pointer-events-none">GitHub Contributions</p>
 					<div id="contributions-grid" class="flex flex-col gap-0.5 p-3 w-full max-w-full justify-center items-center"></div>
 				</div>
-				<ProjectGrid {projects} client:load/>
-			</div>
+                <div id="projects-container" class="flex flex-wrap justify-center items-stretch gap-8 w-full max-w-5xl mx-auto"></div>
+			</div>                                  
 		</div>
 	</Terminal>
 
 	<script>
 		import { typeWriter } from '../scripts/effects/Typewriter.ts';
 		import { fetchContributions } from '../scripts/fetchers/GithubStatusFetcher.ts';
+        import { fetchGithubProjects } from '../scripts/fetchers/GithubProjectFetcher.ts';
 
 		document.addEventListener('DOMContentLoaded', () => {
 			const typedEl = document.getElementById('typed');
@@ -46,6 +44,7 @@ const projects = await fetchGithubProject();
 					navbarEl.classList.remove("hidden");
 					navbarEl.classList.add("fade-in");
 					fetchContributions();
+                    fetchGithubProjects();
 				});
 			}
 		});
