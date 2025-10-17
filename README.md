@@ -1,4 +1,4 @@
-![Portfolio Screenshot](public/photos/preview/image.png)
+![Portfolio Screenshot](public/preview/image.png)
 
 # Görkem Karyol Portfolio
 
