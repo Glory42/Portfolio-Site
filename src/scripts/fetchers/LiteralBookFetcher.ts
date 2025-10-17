@@ -25,10 +25,10 @@ export async function fetchCurrentlyReading(): Promise<void> {
         }
 
         const html = limited.map(book => `
-            <li class="w-60 min-h-[280px] p-4 flex flex-col justify-between items-center transition-transform hover:-translate-y-0.5">
+            <li class="w-60 min-h-[200px] p-4 flex flex-col justify-between items-center transition-transform hover:-translate-y-0.5">
                 <img 
                     src="${book.book.cover}" 
-                    class="w-60 h-80 object-cover rounded-md mb-3 hover:scale-105 transition-transform"
+                    class="max-w-[200px] min-h-[100px] object-cover rounded-md mb-3 hover:scale-105 transition-transform"
                 />
             </li>
         `).join('');
