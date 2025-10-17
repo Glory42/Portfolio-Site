@@ -4,7 +4,7 @@
 
 Welcome to the public repository of my personal website. This project includes various components and functionalities for my portfolio, including API integrations and dynamic project displays.  
 
-> **Note:** All API calls are handled by a private backend repository. You can view a **mimic public version** of the backend to understand the structure: [Mimic Backend Repository](https://github.com/<your-username>/mimic-backend).
+> **Note:** All API calls are handled by a private backend repository. You can view a **mimic public version** of the backend to understand the structure: [Mimic Backend Repository](https://github.com/Glory42/Portfolio_Backend_Mimic).
 
 ## Overview
 
@@ -43,7 +43,7 @@ Since the backend is private, see the **mimic backend repo** above for reference
 ### Running Locally
 
 ```bash
-$ git clone https://github.com/glory42/ma-portfolio.git
+$ git clone https://github.com/Glory42/ma-portfolio.git
 $ cd ma-portfolio
 $ npm install
 $ npm run dev
