@@ -20,6 +20,7 @@ export async function fetchGithubProjects(): Promise<void> {
       justify-between hover:bg-gray-900 transition-transform hover:-translate-y-0.5 shadow-[0_2px_5px_rgba(0,0,0,0.3)]">
         <h3 class="text-lg font-semibold">${p.name}</h3>
         <p class="text-gray-400">${p.description}</p>
+        <h3 class="text-indigo-400">${p.language}</h3>
         <a href="${p.html_url}" target="_blank" class="text-amber-200 hover:text-amber-400">View on GitHub</a>
       </div>
     `).join('');
