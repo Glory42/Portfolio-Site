@@ -1,6 +1,6 @@
 ![Portfolio Screenshot](public/preview/image.png)
 
-# Görkem Karyol Portfolio
+# [gorkemkaryol.dev](https://www.gorkemkaryol.dev/)
 
 Welcome to the public repository of my personal website. This project includes various components and functionalities for my portfolio, including API integrations and dynamic project displays.  
 
