@@ -1,4 +1,4 @@
-![Portfolio Screenshot](public/preview/image.png)
+![Portfolio Screenshot](public/preview/previewImage.png)
 
 # [gorkemkaryol.dev](https://www.gorkemkaryol.dev/)
 
